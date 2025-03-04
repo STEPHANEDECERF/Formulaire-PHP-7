@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire d'inscription</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-</head>
+<?php
+include_once '../../Templates/head.php' ?>
 
 <body>
     <div class="col-4 mx-auto">
@@ -21,15 +12,15 @@
 
             <div class="form-group">
                 <label for="usr">Nom :</label><span class="text-danger ms-1"><?= $errors["lastname"] ?? "" ?></span>
-                <input type="text" name="lastname" class="form-control" id="usr">
+                <input type="text" name="lastname" class="form-control" id="usr" value="<?= $_POST["lastname"] ?? "" ?>">
             </div>
             <div class="form-group">
                 <label for="usr">Prénom :</label><span class="text-danger ms-1"><?= $errors["firstname"] ?? "" ?></span>
-                <input type="text" name="firstname" class="form-control" id="usr">
+                <input type="text" name="firstname" class="form-control" id="usr" value="<?= $_POST["firstname"] ?? "" ?>">
             </div>
             <div class="form-group">
                 <label for="usr">Pseudo :</label><span class="text-danger ms-1"><?= $errors["pseudo"] ?? "" ?></span>
-                <input type="text" name="pseudo" class="form-control" id="usr">
+                <input type="text" name="pseudo" class="form-control" id="usr" value="<?= $_POST["pseudo"] ?? "" ?>">
             </div>
 
 
@@ -37,7 +28,7 @@
 
             <div class="mb-3 mt-3">
                 <label for="exampleInputEmail1" class="form-label">Email : </label><span class="text-danger ms-1"><?= $errors["email"] ?? "" ?></span>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"value="<?= $_POST["email"] ?? "" ?>">
                 <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre e-mail avec quelqu'un d'autre.
                 </div>
 
