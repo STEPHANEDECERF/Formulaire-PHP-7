@@ -73,7 +73,7 @@ include_once '../../Templates/head.php' ?>
             </div>
             <button type="submit" class="btn btn-primary">Soumettre</button>
             <br><br><br>
-
+            <a href="../Controller/controller-connexion.php">Retour</a>
 
             <br><br>
 

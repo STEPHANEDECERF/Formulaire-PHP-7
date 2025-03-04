@@ -1,4 +1,7 @@
 <?php
+
+require_once '../../config.php';
+
 // regex pour le formulaire
 // uniquement des caractères alpha
 $regex_name = "/^[a-zA-Z]+$/";
@@ -75,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($_POST['date'])) {
             $errors['date'] = 'champs obligatoire';
             // verifie si caractère autorisé
-        
+
         }
     }
 
@@ -91,12 +94,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // au final, si mon tableau d'erreurs est vide alors redirection
     if (empty($errors)) {
-        header('Location: ../View/view-confirmation.php');
-        exit;
+
+        // on se connect à la bdd
+
+        $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8' , DB_USER, DB_PASS);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+
+
+       var_dump($pdo);
     }
 }
 
 var_dump($_POST);
 
 include_once '../View/view-inscription.php';
-?>
