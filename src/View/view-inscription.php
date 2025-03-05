@@ -56,11 +56,11 @@ include_once '../../Templates/head.php' ?>
 
             <!-- Genre         -->
             <span class="text-danger ms-1"><?= $errors["genre"] ?? "" ?></span>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Genre :</option>
-                <option value="1">Homme</option>
-                <option value="2">Femme</option>
-                <option value="3">Autre</option>
+            <select class="form-select" aria-label="Default select example" name="genre">
+                <option selected disabled value="">Choix du genre</option>
+                <option value="homme">Homme</option>
+                <option value="femme">Femme</option>
+                <option value="autre">Autre</option>
             </select>
             <br>
 
