@@ -25,3 +25,8 @@ VALUES
     -- recherche user pseudo
     
     SELECT * FROM `76_users` WHERE user_pseudo = 'ghghff';
+
+-- recherche utilisateur user pseudo ou user_mail
+
+    SELECT * FROM `76_users` 
+WHERE user_pseudo = 'ghghff' OR `user_mail`= 'ghghff'
