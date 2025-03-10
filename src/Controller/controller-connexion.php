@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require_once '../../config.php';
 
 
@@ -43,13 +46,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if($found == false){
+        if ($found == false) {
             $errors['connexion'] = 'identifiant ou mot de passe incorrect';
         } else {
-            var_dump($user);
+            if (password_verify($_POST['password'], $user['user_password'])) {
+                // nous stockons les données de l'utilisateur dans la session
+                $_SESSION = $user;
+
+                // nous supprimons le mot de passe de la session
+                unset($_SESSION['user_password']);
+                unset($_SESSION['user_activated']);
+
+                // nous redirigeons l'utilisateur vers son profil
+                header('Location: controller-profil.php');
+                exit;
+            } else {
+                $errors['connexion'] = 'identifiant ou mot de passe incorrect';
+            }
         }
-
-
     }
 }
 ?>
