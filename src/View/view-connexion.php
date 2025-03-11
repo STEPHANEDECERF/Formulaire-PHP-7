@@ -3,7 +3,7 @@ include_once '../../Templates/head.php' ?>
 
 <body>
     <div class="col-4 mx-auto">
-        <h1>Connexion :</h1>
+        <h1 class= "text-center">Connexion </h1>
         <form action="" method="POST" novalidate>
             <div class="mb-3">
                 <label for="email" class="form-label">Email : </label></label><span class="text-danger ms-1"><?= $errors["email"] ?? "" ?></span>
