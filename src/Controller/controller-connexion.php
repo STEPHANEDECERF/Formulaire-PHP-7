@@ -2,6 +2,13 @@
 
 session_start();
 
+// on regarde si l'utilisateur est bien loggé
+if (isset($_SESSION['user_id'])) {
+    // on renvoie vers la page profile si non
+    header('Location: controller-profil.php');
+    exit;
+}
+
 require_once '../../config.php';
 
 

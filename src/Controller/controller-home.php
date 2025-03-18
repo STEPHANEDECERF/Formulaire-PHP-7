@@ -9,7 +9,8 @@ require_once '../../config.php';
 // on controle si la personne est bien loggée
 if (!isset($_SESSION['user_id'])) {
     // on renvoie vers la page d'accueil si non
-    header('Location: ../../public/');
+    // on renvoie vers la page profile si non
+    header('Location: controller-connexion.php');
     exit;
 }
 

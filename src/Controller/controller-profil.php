@@ -2,10 +2,15 @@
 
 session_start();
 
+// on regarde si l'utilisateur est bien loggé
+if (!isset($_SESSION['user_id'])) {
+    // on renvoie vers la page profile si non
+    header('Location: controller-connexion.php');
+    exit;
+}
+
 // on charge le fichier de config
 require_once '../../config.php';
-
-
 
 // connexion à la base de données via PDO (PHP Data Objects) = création instance
 $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);

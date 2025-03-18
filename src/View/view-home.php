@@ -25,8 +25,8 @@ include_once '../../Templates/head.php' ?>
                             <p class="card-text">500 J'aime</p>
 
                             <p class="card-text w-100 text-truncate"><img src="../../assets/img/users/11/voiture.png" class="rounded-circle avatar border border-dark me-1" alt=""><b> <?= $value["user_pseudo"] ?></b> <?= $value["post_description"] ?></p>
-                            <p class="card-text m-0 text-secondary text-truncate">Afficher les 20 commentaires</p>
-                            <p class="card-text m-0 text-secondary">Ajouter un commentaire...</p>
+                            <a href="../Controller/controller-post.php"><p class="card-text m-0 text-secondary text-truncate">Afficher les 20 commentaires</p></a>
+                            <a href="../Controller/controller-post.php"><p class="card-text m-0 text-secondary">Ajouter un commentaire...</p></a>
 
                         </div>
 
