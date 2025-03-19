@@ -30,3 +30,8 @@ VALUES
 
     SELECT * FROM `76_users` 
 WHERE user_pseudo = 'ghghff' OR `user_mail`= 'ghghff'
+
+SELECT `user_id`,`post_id`,`post_timestamp`,`post_description`,`pic_id`,`user_pseudo`,`user_avatar` FROM `76_posts` 
+NATURAL JOIN 76_pictures
+NATURAL JOIN 76_users
+WHERE `post_id`= 4
