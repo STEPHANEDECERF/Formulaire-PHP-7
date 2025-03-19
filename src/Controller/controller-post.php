@@ -11,6 +11,10 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
+
+require_once "../Model/model-comments.php";
+
+
 // connexion à la base de données via PDO (PHP Data Objects) = création instance
 $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
 
@@ -26,7 +30,7 @@ WHERE `post_id`= :post_id;";
 // on prepare la requete pour se prémunir des injections SQL
 $stmt = $pdo->prepare($sql);
 
-$stmt->bindValue(':post_id',$_GET['post_id'], PDO::PARAM_STR);
+$stmt->bindValue(':post_id', $_GET['post_id'], PDO::PARAM_STR);
 
 $stmt->execute();
 
@@ -35,11 +39,11 @@ $post = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $pdo = '';
 
-var_dump($post)
+$allComments = Comments::getAllComments($_GET['post_id']);
 
 ?>
 
-<?php include_once "../View/view-post.php"?>
+<?php include_once "../View/view-post.php" ?>
 
 
 
